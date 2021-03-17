@@ -1,0 +1,220 @@
+<!doctype html>
+<html">
+  <head>
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik&amp;display=swap'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+     {% if title %}
+        <title>TheraChat an AI chatbot - {{ title }}</title>
+    {% else %}
+        <title>TheraChat an AI chatbot</title>
+    {% endif %}
+   <link rel = "icon" href = "https://yashvardhanv.github.io/therachatfrontend/logo.svg" type = "image/x-icon">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="nav-link active" aria-current="page" href="/home"><img src="https://yashvardhanv.github.io/therachatfrontend/logo.svg" height="40vh" width="40vw"></a>
+    <a class="navbar-brand" href="/home">TheraChat</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/faq">FAQ</a>
+        </li>
+      </ul>
+      <!-- chatnow modal -->
+      <!-- Button trigger modal -->
+
+
+<!-- Modal -->
+
+      <!-- chatnow finished -->
+      {% if current_user.is_authenticated %}
+ <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdropchatnow"
+          style="margin-right: 1vw;">
+          Chat Now
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdropchatnow" data-bs-backdrop="static" data-bs-keyboard="false"
+          tabindex="-1" aria-labelledby="staticBackdropLabelchatnow" aria-hidden="true">
+          <div class="modal-dialog" style="float: right;">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5> Chat Now</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <div id="chatbox">
+                    <div class="ChatWindow">
+
+                      <div class="ChatItem ChatItem--customer">
+
+
+
+
+                        <div class="ChatItem-chatText">How can i help you?</div>
+
+                      </div>
+
+                      <div class="ChatItem ChatItem--expert">
+
+
+                        <div class="ChatItem-chatText">Hit Enter to send the message </div>
+
+                      </div>
+                    </div>
+
+
+
+
+                  </div>
+                  <div id="userInput">
+                    <input class="form-control inline" id="textInput" style="display:inline-block;" type="text" name="msg" placeholder="Enter Message" />
+
+                  </div>
+                    <button class="btn btn-outline-primary btn-sm float-right inline" style="" onclick="getBotResponse()" id="sendBtn">Send</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a style="margin-right: 1vw" class="btn btn-primary" href="{{ url_for('logout') }}">Logout</a>
+      {% else %}
+
+    <a style="margin-right: 1vw" class="btn btn-primary" href="/signup">Create Account</a>
+    <a style="margin-right: 1vw" class="btn btn-primary" href="/login">Login</a>
+      {% endif %}
+</nav>
+<div class="col-md-8">
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+
+        </div>
+<!--new code after -->
+
+{% block content %}{% endblock %}
+
+
+<!-- footer code -->
+<footer class="footer-section">
+        <div class="container">
+            <div class="footer-cta pt-5 pb-5">
+                <div class="row">
+                    <div class="col-xl-4 col-md-4 mb-30">
+                        <div class="single-cta">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="cta-text">
+                                <h4>Find us</h4>
+                                <span>Ahmedabad, Gujarat</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-4 mb-30">
+                        <div class="single-cta">
+                            <i class="fas fa-phone"></i>
+                            <div class="cta-text">
+                                <h4>Call us</h4>
+                                <span>9106951079</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-4 mb-30">
+                        <div class="single-cta">
+                            <i class="far fa-envelope-open"></i>
+                            <div class="cta-text">
+                                <h4>Mail us</h4>
+                                <span>TheraChat@TheraChat.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-content pt-5 pb-5">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 mb-50">
+                        <div class="footer-widget">
+                            <div class="footer-logo">
+                                <a href="/home"><img src="https://www.flaticon.com/svg/static/icons/svg/2728/2728279.svg" class="img-fluid" alt="logo"></a>
+                            </div>
+                            <div class="footer-text">
+                                <p>Support Us On Social Media ,Hope You Like Our Website And If You Have Query Or Issue Then Contact Us Without Hesitation.  </p>
+                            </div>
+                            <div class="footer-social-icon">
+                                <span>Follow Us On:</span>
+                                <a href="#"><img src="https://yashvardhanv.github.io/therachatfrontend/facebook.svg"height="40vh" width="40vw" ></a>
+                                <a href="#"><img src="https://yashvardhanv.github.io/therachatfrontend/instagram.svg" height="40vh" width="40vw"></a>
+                                <a href="#"><img src="https://yashvardhanv.github.io/therachatfrontend/twitter.svg"height="40vh" width="40vw"></a>
+                                <a href="#"><img src="https://yashvardhanv.github.io/therachatfrontend/linkedin.svg"height="40vh" width="40vw"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+                        <div class="footer-widget">
+                            <div class="footer-widget-heading">
+                                <h3>Useful Links</h3>
+                            </div>
+                            <ul>
+                                <li><a href="/home">Home</a></li>
+                                <li><a href="/contact">Contact</a></li>
+                                <li><a href="/about">About us</a></li>
+                                 <li><a href="/faq">FAQ</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6 mb-50">
+                        <div class="footer-widget">
+                            <div class="footer-widget-heading">
+                                <h3>Subscribe</h3>
+                            </div>
+                            <div class="footer-text mb-25">
+                                <p>Don’t miss to subscribe to our new feeds, kindly fill the form below.</p>
+                            </div>
+                            <div class="subscribe-form">
+                                <form action="#">
+                                    <input type="text" placeholder="Email Address">
+                                    <button><img src="https://yashvardhanv.github.io/therachatfrontend/arrow.svg"></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </footer>
+<!-- ending footer -->
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js'></script>
+<script src="{{url_for('static', filename='bot.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+  </body>
+</html>

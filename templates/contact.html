@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="contactform" style=" margin-bottom: 4vh;margin-top: 2vh;margin-left: 2vw ">
+  <h1 class="display-6" style="font-size: 3vw;">Contact Us Form</h1>
+<form>
+<div class="input-group flex-nowrap"style="margin-bottom: 1vh;font-size: 2vw;">
+  <span class="input-group-text" id="addon-wrapping" style="font-size: 1vw;">Your Name</span>
+  <input type="text" class="form-control" placeholder="Username" style="font-size: 1vw;" aria-describedby="addon-wrapping" required>
+</div>
+<div class="input-group flex-nowrap"style="margin-bottom: 1vh;font-size: 2vw;">
+  <span class="input-group-text" id="addon-wrapping" style="font-size: 1vw;">Your Email</span>
+  <input type="email" class="form-control" placeholder="Email Address" style="font-size: 1vw;"  aria-describedby="addon-wrapping" required>
+</div>
+<div class="input-group flex-nowrap"style="margin-bottom: 1vh;font-size: 2vw;">
+  <span class="input-group-text" id="addon-wrapping" style="font-size: 1vw;">Contact </span>
+  <input type="text" class="form-control" placeholder="Mobile Or Telephone" style="font-size: 1vw;"  aria-describedby="addon-wrapping" required>
+</div>
+<div class="input-group flex-nowrap"style="margin-bottom: 3vh;font-size: 2vw;">
+  <span class="input-group-text" id="addon-wrapping" style="font-size: 1vw;">Your Message</span>
+  <input type="textarea" class="form-control" placeholder="Message" style="font-size: 1vw;" aria-describedby="addon-wrapping" required>
+</div>
+<button class="btn btn-primary" style="margin-left: 10vw;font-size: 1.5vw;">Submit</button>
+</form>
+</div>
+<!-- chat option -->
+
+<div style="margin-left: 1vw;"class="contactform">
+  <h1 class="display-6" style="font-size: 3vw;">Chat With Us</h1>
+  <div class="row">
+    <div class="col msg-window-container">
+      <div class="card"  id="msgWindow">
+        <div class="card-body" id="msgs">
+          <div class="msg to" style="font-size:1vw">Hello! How can I assist you today?</div>
+        </div>
+        <div class="card-footer">
+          <div class="input-group" style="font-size:1vw" id="msgForm" data-sender="me">
+            <input class="form-control" style="font-size:1vw" type="text" placeholder="Hit [Enter] to send."/>
+            <div class="input-group-append" style="font-size:1vw">
+              <button class="btn btn-outline-secondary" style="font-size:1vw" type="button">Send</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- suppport on scial media -->
+<div class="contactform" style="margin-left: 1vw;">
+  <h1 class="display-6" style="font-size: 3vw;">Support Us On</h1>
+  <div style="display: inline-block;">
+  <a href="#" style="margin-left: 1vw;"><img style="width: 3vw;height: 5vh;" src="https://yashvardhanv.github.io/therachatfrontend/facebook.svg"></a>
+  <a href="#" style="margin-left: 1vw;"><img style="width: 3vw;height: 5vh;" src="https://yashvardhanv.github.io/therachatfrontend/instagram.svg" ></a>
+  <a href="#" style="margin-left: 1vw;"><img style="width: 3vw;height: 5vh;" src="https://yashvardhanv.github.io/therachatfrontend/twitter.svg"></a>
+  <a href="#" style="margin-left: 1vw;"><img style="width: 3vw;height: 5vh;" src="https://yashvardhanv.github.io/therachatfrontend/linkedin.svg"></a>
+  <p class="lead" style="margin-top: 10vh;vertical-align: bottom;font-size: 1vw;">Or Mail Us At TheraChat@TheraChat.com</p>
+  </div>
+</div>
+{% endblock content %}
