@@ -61,6 +61,9 @@ def getResponse(ints, intents_json):
 
 def chatbot_response(msg):
     ints = predict_class(msg, model)
-    res = getResponse(ints, intents)
+    try:
+        res = getResponse(ints, intents)
+    except:
+        res = "sorry i could not understand that"
     return res
 
