@@ -1,3 +1,5 @@
+import os
+import psycopg2
 from flask import Flask,render_template, url_for, flash, redirect, request, abort
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
@@ -20,7 +22,7 @@ from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationE
 #app and configs
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'arandomkey'
-app.config['SQLALCHEMY_DATABASE_URI'] = ""
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_POOL_RECYCLE'] = 299
 app.config['SQLALCHEMY_POOL_TIMEOUT'] = 20
