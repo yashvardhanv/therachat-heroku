@@ -1,3 +1,4 @@
-/static/
-/templates/
-chatbot_model.h5
+*.html
+*.pkl
+*.h5
+
