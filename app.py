@@ -163,7 +163,7 @@ def signup():
         return redirect(url_for('home'))
     form = RegistrationForm()
     if form.validate_on_submit():
-        hashed_password = (bcrypt.generate_password_hash(form.password.data)).encode().decode('utf-8')
+        hashed_password = (bcrypt.generate_password_hash(form.password.data)).decode('utf-8')
         user = User(username=form.username.data,name=form.name.data, email=form.email.data, password=hashed_password)
         db.session.add(user)
         db.session.commit()
@@ -233,7 +233,7 @@ def reset_token(token):
         return redirect(url_for('reset_request'))
     form = ResetPasswordForm()
     if form.validate_on_submit():
-        hashed_password = bcrypt.generate_password_hash(form.password.data).encode().decode('utf-8')
+        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
         user.password = hashed_password
         db.session.commit()
         flash('Your password has been updated! ', 'success')
