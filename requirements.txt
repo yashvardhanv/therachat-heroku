@@ -25,5 +25,4 @@ h5py==2.10.0
 Keras==2.4.3
 tensorflow==2.4.1
 pickle-mixin==1.0.2
-json==2.0.9
 nltk==3.2.5
