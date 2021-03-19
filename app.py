@@ -21,7 +21,7 @@ from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationE
 
 #app and configs
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'arandomkey'
+app.config['SECRET_KEY'] = '9792868bb0f56se6c676dfbc780ba945'
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_POOL_RECYCLE'] = 299
@@ -34,8 +34,8 @@ login_manager.login_message_category = 'info'
 app.config['MAIL_SERVER'] = 'smtp.googlemail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = 'None'
-app.config['MAIL_PASSWORD'] = 'None'
+app.config['MAIL_USERNAME'] = 'therachatbothelp@gmail.com'
+app.config['MAIL_PASSWORD'] = 'TheraChatbot@gmail.com'
 mail = Mail(app)
 
 
