@@ -64,6 +64,6 @@ def chatbot_response(msg):
     try:
         res = getResponse(ints, intents)
     except:
-        res = "sorry i could not understand that"
+        res = "Sorry i could not understand that."
     return res
 
