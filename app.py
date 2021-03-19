@@ -152,6 +152,22 @@ def about():
 def faq():
     return render_template("faq.html", title='FAQ')
 
+@app.route("/meditation")
+def meditation():
+    return render_template("meditation.html", title='meditation')
+
+@app.route("/anger")
+def anger():
+    return render_template("anger.html", title='Anger')
+
+@app.route("/stress")
+def stress():
+    return render_template("stress.html", title='Stress')
+
+@app.route("/depression")
+def depression():
+    return render_template("depression.html", title='Depression')
+
 @app.route("/contact")
 def contact():
     return render_template("contact.html", title='Contact Us')
