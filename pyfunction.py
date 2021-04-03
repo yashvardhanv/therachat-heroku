@@ -8,12 +8,12 @@ import pickle
 import numpy as np
 
 from tensorflow.keras.models import load_model
-model = load_model('chatbot_modeltest.h5',compile=False)
+model = load_model('chatbot_model.h5',compile=False)
 import json
 import random
-intents = json.loads(open('test.json').read())
-words = pickle.load(open('wordstest.pkl','rb'))
-classes = pickle.load(open('classestest.pkl','rb'))
+intents = json.loads(open('newchatdata.json').read())
+words = pickle.load(open('words.pkl','rb'))
+classes = pickle.load(open('classes.pkl','rb'))
 
 def clean_up_sentence(sentence):
     # tokenize the pattern - split words into array
