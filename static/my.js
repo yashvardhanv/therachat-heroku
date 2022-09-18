@@ -1,11 +1,3 @@
-
-// Normal Brain: Designing a cool lil chat widget in CSS with some time between projects.
-// Big Brain: Make a functional jQuery form submit and simulate a response.
-// Galactic Brain: Do it in React.
-// Multiversal Brain: Make a React Native chat app.
-
-// Version: Big Brain, but with a headache.
-// Headache: Needed to include babel polyfill to work with Promises.
 $(function () {
 
   // Define some elements from the DOM and utility methods.
