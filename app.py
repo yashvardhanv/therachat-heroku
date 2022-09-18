@@ -21,7 +21,7 @@ from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationE
 
 #app and configs
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'A key here'
+app.config['SECRET_KEY'] = 'dsb24h3bk24jb52k30434b3hv42vj3b2n4'
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_POOL_RECYCLE'] = 299
